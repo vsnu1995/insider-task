@@ -1,26 +1,25 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Upload } from "./Upload";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router>
+        <div>
+          <nav className="navbar navbar-expand navbar-dark bg-dark">
+            <div className="collapse navbar-collapse" id="navbarsExample02">
+              <ul className="navbar-nav mr-auto col-md-12">
+                <li className="nav-item col-md-3">
+                  <Link to="/upload" >Upload</Link>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <Route path="/upload" component={Upload} />
+        </div>
+      </Router>
     );
   }
 }
